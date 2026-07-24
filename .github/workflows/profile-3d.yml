@@ -25,3 +25,5 @@ jobs:
           git add -A .
           git commit -m "generated 3D profile contrib"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}

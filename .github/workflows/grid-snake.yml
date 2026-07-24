@@ -34,7 +34,7 @@ jobs:
       - name: Deploy to output branch
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.ACTIONS_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
           force_orphan: true
