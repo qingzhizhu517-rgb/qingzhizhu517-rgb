@@ -16,6 +16,16 @@
 
 ---
 
+### 🐍 GitHub Contribution Snake
+
+<div align="center">
+
+![snake](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg)
+
+</div>
+
+---
+
 ## Tech Stack
 
 <table>
