@@ -1,8 +1,5 @@
 <div align="center">
 
-<!-- 动态顶部横幅 -->
-<img src="./assets/wave.svg" width="100%" alt="Wave Banner">
-
 <!-- 个人头像和基本信息 -->
 <img src="https://avatars.githubusercontent.com/u/251833761?v=4" width="150" style="border-radius: 50%;" alt="qz-zhu">
 
@@ -27,43 +24,14 @@
 
 ---
 
-## ⚠️ 动态内容说明
-
-<details>
-<summary>📋 点击展开查看哪些内容需要 GitHub Actions 支持</summary>
-
-### 需要运行 GitHub Actions 才能显示的内容：
-
-1. **🐍 贡献蛇动画** - 需要运行 `grid-snake.yml` 工作流
-2. **📊 GitHub Metrics** - 需要运行 `Metrics.yml` 工作流并配置 `METRICS_TOKEN`
-3. **🌟 3D 贡献图** - 需要运行 `profile-3d.yml` 工作流
-
-### 如何启用：
-
-1. 访问仓库的 **Settings** → **Secrets and variables** → **Actions**
-2. 添加 Secret：`METRICS_TOKEN`（需要 `repo`, `workflow`, `read:user` 权限）
-3. 访问 **Actions** 页面，手动运行所有工作流
-4. 等待工作流完成，然后刷新页面
-
-详细说明请查看 [DEPLOYMENT.md](./DEPLOYMENT.md)
-
-</details>
-
----
-
 ## 🎯 About Me
 
-```java
-public class QzZhu {
-    private String role = "Java & AI Agent Engineer";
-    private String[] interests = {"Spring AI", "RAG", "LLM", "Open Source"};
-    private String location = "Shandong, China";
-
-    public void sayHello() {
-        System.out.println("Welcome to my GitHub profile! 🚀");
-    }
-}
-```
+- 🔭 I'm currently working on **AI Agent** projects
+- 🌱 I'm currently learning **Spring AI, RAG, LLM**
+- 👯 I'm looking to collaborate on **Open Source** projects
+- 💬 Ask me about **Java, Spring Boot, AI, Machine Learning**
+- 📫 How to reach me: **your-email@example.com**
+- ⚡ Fun fact: **I love coffee and coding!**
 
 ---
 
@@ -128,25 +96,6 @@ public class QzZhu {
 ### 🔥 Streak Stats
 ![Streak](https://github-readme-streak-stats.herokuapp.com/?user=qingzhizhu517-rgb&theme=radical)
 
-<!-- GitHub 贡献蛇动画 -->
-### 🐍 Contribution Snake
-
-<details>
-<summary>📜 点击展开查看贡献蛇动画</summary>
-
-**需要运行 GitHub Actions 才能显示：**
-
-1. 访问仓库的 Actions 页面
-2. 点击 "Generate Snake Animation"
-3. 点击 "Run workflow" 手动触发
-4. 等待运行完成后刷新页面
-
-![snake](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg)
-
-![snake-dark](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake-dark.svg)
-
-</details>
-
 </div>
 
 ---
@@ -169,40 +118,22 @@ public class QzZhu {
 
 <!-- GitHub Activity Graph -->
 ### 📊 Contribution Activity
-<!-- Activity Graph 可能需要一些时间加载 -->
 ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=qingzhizhu517-rgb&theme=redical&hide_border=true&bg_color=ffffff&color=5C6BC0&line=5C6BC0&point=5C6BC0&area_color=5C6BC0&area=true)
 
 </div>
 
 ---
 
-## 🎨 3D Contribution Graph
+## 🐍 Contribution Snake
 
 <div align="center">
 
-### 🌟 3D Profile Contribution
-![3D Contrib](./profile-3d-contrib/profile-green-animate.svg)
+<!-- GitHub 贡献蛇动画 - 需要运行 GitHub Actions -->
+![snake](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg)
+
+![snake-dark](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake-dark.svg)
 
 </div>
-
----
-
-## 📊 GitHub Metrics
-
-<div align="center">
-
-### 📉 Detailed Metrics
-<img src="./github-metrics.svg" alt="GitHub Metrics" width="100%">
-
-</div>
-
----
-
-## 🔥 Recent Activity
-
-<!--START_SECTION:activity-->
-1. 🎉 Joined GitHub
-<!--END_SECTION:activity-->
 
 ---
 
@@ -246,7 +177,7 @@ while (true) {
 
 <div align="center">
 
-<!-- 访客计数器 - 使用更可靠的服务 -->
+<!-- 访客计数器 -->
 <img src="https://komarev.com/ghpvc/?username=qingzhizhu517-rgb&color=blue&style=flat&label=Profile+Views" alt="Profile Views">
 
 <p>Counting of visitors started from July 2026</p>
@@ -259,11 +190,7 @@ while (true) {
 
 <div align="center">
 
-<!-- Star History 可能需要一些时间加载 -->
 [![Star History Chart](https://api.star-history.com/svg?repos=qingzhizhu517-rgb/qingzhizhu517-rgb&type=Date)](https://star-history.com/#qingzhizhu517-rgb/qingzhizhu517-rgb&Date)
-
-<!-- 备用：如果上面的不显示，使用这个 -->
-<!-- [![Star History Chart](https://star-history.com/#qingzhizhu517-rgb/qingzhizhu517-rgb&Date)](https://star-history.com/#qingzhizhu517-rgb/qingzhizhu517-rgb&Date) -->
 
 </div>
 
@@ -272,7 +199,5 @@ while (true) {
 <div align="center">
 
 ### ⭐ If you like my profile, give it a star! ⭐
-
-![Wave](./assets/wave.svg)
 
 </div>
