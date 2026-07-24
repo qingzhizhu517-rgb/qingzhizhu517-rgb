@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-<img src="./assets/wave.svg" width="100%" alt="Wave Banner">
+<img src="./assets/header_.png" width="100%" alt="Header">
 </p>
 
 <div align="center">
@@ -113,17 +113,6 @@ public class QzZhu {
 
 ### 🌟 3D Profile Contribution
 ![3D Contrib](./profile-3d-contrib/profile-green-animate.svg)
-
-</div>
-
----
-
-## 📊 GitHub Metrics
-
-<div align="center">
-
-### 📉 Detailed Metrics
-<img src="./github-metrics.svg" alt="GitHub Metrics" width="100%">
 
 </div>
 
