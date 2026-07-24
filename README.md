@@ -18,22 +18,6 @@
 
 ---
 
-## 🎯 About Me
-
-```java
-public class QzZhu {
-    private String role = "Java & AI Agent Engineer";
-    private String[] interests = {"Spring AI", "RAG", "LLM", "Open Source"};
-    private String location = "Shandong, China";
-
-    public void sayHello() {
-        System.out.println("Welcome to my GitHub profile! 🚀");
-    }
-}
-```
-
----
-
 ## 🛠️ Tech Stack
 
 <table>
@@ -80,25 +64,6 @@ public class QzZhu {
 
 ---
 
-## 🎨 3D Contribution Graph
-
-<div align="center">
-
-### 🌟 3D Profile Contribution
-![3D Contrib](./profile-3d-contrib/profile-green-animate.svg)
-
-</div>
-
----
-
-## 🔥 Recent Activity
-
-<!--START_SECTION:activity-->
-1. 🎉 Joined GitHub
-<!--END_SECTION:activity-->
-
----
-
 ## 📫 How to Reach Me
 
 <div align="center">
@@ -115,38 +80,6 @@ public class QzZhu {
 </a>
 
 </div>
-
----
-
-## 💡 Fun Fact
-
-<div align="center">
-
-```javascript
-while (true) {
-    coffee.drink();
-    code.write();
-    bugs.fix();
-    repeat();
-}
-```
-
-</div>
-
----
-
-## 📊 Visitor Count
-
-<div align="center">
-
-<!-- 访客计数器 -->
-<img src="https://profile-counter.glitch.me/qingzhizhu517-rgb/count.svg" alt="Visitor Count">
-
-<p>Counting of visitors started from July 2026</p>
-
-</div>
-
----
 
 ---
 
