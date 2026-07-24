@@ -87,6 +87,4 @@
 
 ### ⭐ If you like my profile, give it a star! ⭐
 
-![Wave](./assets/wave.svg)
-
 </div>
