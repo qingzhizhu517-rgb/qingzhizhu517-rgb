@@ -8,9 +8,7 @@
 
 <div align="center">
 
-# 👋 Hi, I'm **qz-zhu** (qingzhizhu517-rgb)
-
-### ☕ Java & AI Agent Engineer | Focusing on Spring AI, RAG & LLM
+# Hi, I'm **qz-zhu** (qingzhizhu517-rgb)
 
 📍 Shandong, China
 
@@ -18,7 +16,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <table>
   <tr>
@@ -64,7 +62,7 @@
 
 ---
 
-## 📫 How to Reach Me
+## Reach Me
 
 <div align="center">
 
@@ -82,6 +80,6 @@
 
 <div align="center">
 
-### ⭐ If you like my profile, give it a star! ⭐
+### If you like my profile, give it a star! ⭐
 
 </div>
