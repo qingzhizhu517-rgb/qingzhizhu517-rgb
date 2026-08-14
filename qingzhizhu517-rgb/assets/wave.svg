@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="z-index:1;position:relative" width="100%" height="200" viewBox="0 0 1200 200">
+    <style>
+        .text {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        }
+        .desc {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        }
+    </style>
+
+    <!-- 背景渐变 -->
+    <defs>
+        <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#667eea"/>
+            <stop offset="50%" stop-color="#764ba2"/>
+            <stop offset="100%" stop-color="#f093fb"/>
+        </linearGradient>
+        <linearGradient id="linear2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4facfe"/>
+            <stop offset="100%" stop-color="#00f2fe"/>
+        </linearGradient>
+    </defs>
+
+    <!-- 波浪动画层 1 -->
+    <g transform="translate(0, 50)">
+        <path d="" fill="url(#linear)" opacity="0.3">
+            <animate attributeName="d" dur="8s" repeatCount="indefinite"
+                keyTimes="0;0.333;0.667;1"
+                calcMode="spline"
+                keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1"
+                begin="0s"
+                values="M0 80 Q 300 120 600 80 T 1200 100 L 1200 200 L 0 200 Z;
+                        M0 100 Q 300 80 600 100 T 1200 80 L 1200 200 L 0 200 Z;
+                        M0 120 Q 300 100 600 120 T 1200 100 L 1200 200 L 0 200 Z;
+                        M0 80 Q 300 120 600 80 T 1200 100 L 1200 200 L 0 200 Z">
+            </animate>
+        </path>
+    </g>
+
+    <!-- 波浪动画层 2 -->
+    <g transform="translate(0, 70)">
+        <path d="" fill="url(#linear2)" opacity="0.2">
+            <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                keyTimes="0;0.333;0.667;1"
+                calcMode="spline"
+                keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1"
+                begin="-3s"
+                values="M0 90 Q 300 70 600 90 T 1200 70 L 1200 200 L 0 200 Z;
+                        M0 70 Q 300 100 600 70 T 1200 100 L 1200 200 L 0 200 Z;
+                        M0 80 Q 300 60 600 80 T 1200 90 L 1200 200 L 0 200 Z;
+                        M0 90 Q 300 70 600 90 T 1200 70 L 1200 200 L 0 200 Z">
+            </animate>
+        </path>
+    </g>
+
+    <!-- 波浪动画层 3 -->
+    <g transform="translate(0, 90)">
+        <path d="" fill="#667eea" opacity="0.15">
+            <animate attributeName="d" dur="10s" repeatCount="indefinite"
+                keyTimes="0;0.333;0.667;1"
+                calcMode="spline"
+                keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1"
+                begin="-5s"
+                values="M0 100 Q 300 80 600 100 T 1200 80 L 1200 200 L 0 200 Z;
+                        M0 80 Q 300 110 600 80 T 1200 110 L 1200 200 L 0 200 Z;
+                        M0 90 Q 300 70 600 90 T 1200 70 L 1200 200 L 0 200 Z;
+                        M0 100 Q 300 80 600 100 T 1200 80 L 1200 200 L 0 200 Z">
+            </animate>
+        </path>
+    </g>
+
+    <!-- 文字 -->
+    <text text-anchor="middle" alignment-baseline="middle" x="50%" y="35%" class="desc" style="fill:rgba(255,255,255,0.9);">
+        Welcome to my GitHub Profile!
+    </text>
+    <text text-anchor="middle" alignment-baseline="middle" x="50%" y="55%" class="text" style="fill:#ffffff;">
+        ☕ Java & AI Agent Engineer
+    </text>
+    <text text-anchor="middle" alignment-baseline="middle" x="50%" y="75%" class="desc" style="fill:rgba(255,255,255,0.8);">
+        🚀 Focusing on Spring AI, RAG & LLM
+    </text>
+</svg>
