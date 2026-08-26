@@ -18,7 +18,7 @@
 </a>
 
 <!-- 打字动画 -->
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&center=true&vCenter=true&width=600&lines=☕+Java+%26+AI+Agent+Engineer;🚀+Focusing+on+Spring+AI%2C+RAG+%26+LLM;💡+Always+learning+new+things;🌟+Open+Source+Enthusiast)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&center=true&vCenter=true&width=600&lines=☕+Java+%26+AI+Agent+Engineer;🚀+Spring+AI+%7C+RAG+%7C+LLM;📍+Shandong%2C+China)](https://git.io/typing-svg)
 
 </div>
 
@@ -26,12 +26,11 @@
 
 ## 🎯 About Me
 
-- 🔭 I'm currently working on **AI Agent** projects
-- 🌱 I'm currently learning **Spring AI, RAG, LLM**
-- 👯 I'm looking to collaborate on **Open Source** projects
-- 💬 Ask me about **Java, Spring Boot, AI, Machine Learning**
-- 📫 How to reach me: **your-email@example.com**
-- ⚡ Fun fact: **I love coffee and coding!**
+- 🔭 目前专注 **AI Agent** 项目开发
+- 🌱 正在深入学习 **Spring AI、RAG、LLM**
+- 👯 欢迎一起协作 **开源项目**
+- 💬 可以和我聊 **Java、Spring Boot、AI、机器学习**
+- 📍 坐标 **山东**
 
 ---
 
@@ -145,29 +144,6 @@
 <a href="https://github.com/qingzhizhu517-rgb">
   <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </a>
-<a href="mailto:your-email@example.com">
-  <img src="https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
-</a>
-<a href="https://linkedin.com/in/your-linkedin">
-  <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-</a>
-
-</div>
-
----
-
-## 💡 Fun Fact
-
-<div align="center">
-
-```javascript
-while (true) {
-    coffee.drink();
-    code.write();
-    bugs.fix();
-    repeat();
-}
-```
 
 </div>
 
@@ -191,13 +167,5 @@ while (true) {
 <div align="center">
 
 [![Star History Chart](https://api.star-history.com/svg?repos=qingzhizhu517-rgb/qingzhizhu517-rgb&type=Date)](https://star-history.com/#qingzhizhu517-rgb/qingzhizhu517-rgb&Date)
-
-</div>
-
----
-
-<div align="center">
-
-### ⭐ If you like my profile, give it a star! ⭐
 
 </div>
