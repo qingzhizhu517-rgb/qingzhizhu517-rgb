@@ -34,7 +34,7 @@ require_absent() {
 require_text() {
   file_path=$1
   expected=$2
-  if rg -Fq -- "$expected" "$file_path"; then
+  if grep -Fq -- "$expected" "$file_path"; then
     pass "$file_path contains $expected"
   else
     fail "$file_path is missing $expected"
@@ -44,11 +44,43 @@ require_text() {
 forbid_text() {
   file_path=$1
   forbidden=$2
-  if rg -Fq -- "$forbidden" "$file_path"; then
+  if grep -Fq -- "$forbidden" "$file_path"; then
     fail "$file_path still contains $forbidden"
   else
     pass "$file_path does not contain $forbidden"
   fi
+}
+
+require_workflow_action() {
+  file_path=$1
+  expected=$2
+  if grep -E '^[[:space:]]*(-[[:space:]]*)?uses:[[:space:]]*' "$file_path" \
+    | sed -E -e 's/^[[:space:]]*(-[[:space:]]*)?uses:[[:space:]]*/uses: /' -e 's/[[:space:]]*$//' \
+    | grep -Fxq -- "$expected"; then
+    pass "$file_path contains $expected"
+  else
+    fail "$file_path is missing $expected"
+  fi
+}
+
+check_workflow_action_pins() {
+  file_path=$1
+  while IFS= read -r action_line; do
+    line_number=${action_line%%:*}
+    line_text=${action_line#*:}
+    action_value=$(printf '%s\n' "$line_text" \
+      | sed -E -e 's/^[[:space:]]*(-[[:space:]]*)?uses:[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+    case "$action_value" in
+      ./*) continue ;;
+    esac
+
+    if printf '%s\n' "$action_value" | grep -Eq '^[^@[:space:]#]+@[0-9A-Fa-f]{40}$'; then
+      pass "$file_path:$line_number pins $action_value"
+    else
+      fail "$file_path:$line_number must pin uses: to a 40-character commit SHA"
+    fi
+  done < <(grep -En '^[[:space:]]*(-[[:space:]]*)?uses:[[:space:]]*' "$file_path" || true)
 }
 
 check_repository() {
@@ -79,14 +111,17 @@ check_repository() {
     require_absent "$path"
   done
 
-  extra_3d=$(find profile-3d-contrib -type f ! -name profile-night-green.svg -print -quit)
-  if [ -n "$extra_3d" ]; then
-    fail "unexpected 3D contribution variant: $extra_3d"
+  if extra_3d=$(find profile-3d-contrib -type f ! -name profile-night-green.svg -print -quit); then
+    if [ -n "$extra_3d" ]; then
+      fail "unexpected 3D contribution variant: $extra_3d"
+    else
+      pass "only profile-night-green.svg is retained"
+    fi
   else
-    pass "only profile-night-green.svg is retained"
+    fail "could not inspect profile-3d-contrib"
   fi
 
-  if rg -Fxq '.superpowers/' .gitignore; then
+  if grep -Fxq -- '.superpowers/' .gitignore; then
     pass ".superpowers/ is ignored"
   else
     fail ".superpowers/ is not ignored"
@@ -112,8 +147,11 @@ check_assets() {
     fi
   done
 
-  xmllint --noout profile-3d-contrib/profile-night-green.svg >/dev/null
-  pass "profile-night-green.svg is valid XML"
+  if xmllint --noout profile-3d-contrib/profile-night-green.svg >/dev/null; then
+    pass "profile-night-green.svg is valid XML"
+  else
+    fail "profile-night-green.svg is not valid XML"
+  fi
 }
 
 check_readme() {
@@ -166,25 +204,28 @@ check_readme() {
     require_text README.md "$ref"
   done
 
-  location_count=$( (rg -oF 'Shandong, China' README.md || true) | wc -l | tr -d ' ')
+  location_count=$( (grep -oF -- 'Shandong, China' README.md || true) | wc -l | tr -d ' ')
   [ "$location_count" = 1 ] || fail "Shandong, China must appear exactly once"
 }
 
 check_workflows() {
   require_absent .github/workflows/Metrics.yml
 
-  require_text .github/workflows/grid-snake.yml 'Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b'
-  require_text .github/workflows/grid-snake.yml 'peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453'
-  require_text .github/workflows/profile-3d.yml 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262'
-  require_text .github/workflows/profile-3d.yml 'yoshi389111/github-profile-3d-contrib@69fe3757279590c632c16189bb91445b51dc985f'
+  require_workflow_action .github/workflows/grid-snake.yml 'uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b'
+  require_workflow_action .github/workflows/grid-snake.yml 'uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453'
+  require_workflow_action .github/workflows/profile-3d.yml 'uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262'
+  require_workflow_action .github/workflows/profile-3d.yml 'uses: yoshi389111/github-profile-3d-contrib@69fe3757279590c632c16189bb91445b51dc985f'
   require_text .github/workflows/profile-3d.yml '41898282+github-actions[bot]@users.noreply.github.com'
+
+  check_workflow_action_pins .github/workflows/grid-snake.yml
+  check_workflow_action_pins .github/workflows/profile-3d.yml
 
   forbid_text .github/workflows/grid-snake.yml '@latest'
   forbid_text .github/workflows/profile-3d.yml '@latest'
   forbid_text .github/workflows/profile-3d.yml 'ACTIONS_TOKEN'
   forbid_text .github/workflows/profile-3d.yml 'your-email@example.com'
 
-  if rg -n '^  push:' .github/workflows/grid-snake.yml >/dev/null; then
+  if grep -n '^  push:' .github/workflows/grid-snake.yml >/dev/null; then
     fail "grid-snake.yml should not run on every push"
   else
     pass "grid-snake.yml has no push trigger"
@@ -193,7 +234,10 @@ check_workflows() {
 
 check_links() {
   temp_dir=$(mktemp -d "${TMPDIR:-/tmp}/aohs-profile-links.XXXXXX")
-  trap 'rm -rf "$temp_dir"' EXIT HUP INT TERM
+  trap 'rm -rf "$temp_dir"' EXIT
+  trap 'exit 129' HUP
+  trap 'exit 130' INT
+  trap 'exit 143' TERM
 
   links=(
     'https://github.com/qingzhizhu517-rgb|text/html'
@@ -210,19 +254,22 @@ check_links() {
   for entry in "${links[@]}"; do
     url=${entry%%|*}
     expected_type=${entry#*|}
-    headers="$temp_dir/headers-$index"
     body="$temp_dir/body-$index"
-    status=$(curl --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 30 --dump-header "$headers" --output "$body" --write-out '%{http_code}' "$url")
-    if [ "$status" -ge 200 ] && [ "$status" -lt 400 ]; then
-      pass "$url returned $status"
+    if response=$(curl --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 30 --output "$body" --write-out '%{http_code}|%{content_type}' "$url"); then
+      status=${response%%|*}
+      content_type=$(printf '%s' "${response#*|}" | tr '[:upper:]' '[:lower:]')
+      case "$status" in
+        2[0-9][0-9]) pass "$url returned $status" ;;
+        *) fail "$url returned $status" ;;
+      esac
+      case "$content_type" in
+        "$expected_type"*) pass "$url returned $content_type" ;;
+        *) fail "$url returned $content_type instead of $expected_type" ;;
+      esac
     else
-      fail "$url returned $status"
+      curl_status=$?
+      fail "$url could not be fetched (curl exit $curl_status)"
     fi
-    content_type=$(tr '[:upper:]' '[:lower:]' < "$headers" | awk '/^content-type:/{gsub("\\r", "", $2); print $2}' | tail -1)
-    case "$content_type" in
-      "$expected_type"*) pass "$url returned $content_type" ;;
-      *) fail "$url returned $content_type instead of $expected_type" ;;
-    esac
     index=$((index + 1))
   done
 }
