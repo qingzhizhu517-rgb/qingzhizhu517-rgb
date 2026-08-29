@@ -1,171 +1,123 @@
-<div align="center">
+<p align="center">
+  <img src="./assets/brand/aohs-header.webp" width="100%" alt="Aohs Digital Lab：Java、全栈产品开发与 AI 应用集成">
+</p>
 
-<!-- 个人头像和基本信息 -->
-<img src="https://avatars.githubusercontent.com/u/251833761?v=4" width="150" style="border-radius: 50%;" alt="qz-zhu">
+<h1 align="center">Aohs</h1>
 
-# 👋 Hi, I'm **qz-zhu** (qingzhizhu517-rgb)
+<p align="center"><code>@qingzhizhu517-rgb</code></p>
 
-### ☕ Java & AI Agent Engineer | Focusing on Spring AI, RAG & LLM
+<p align="center">
+  <strong>Engineering systems. Designing experiences.</strong><br>
+  把复杂需求做成真正可用的产品。
+</p>
 
-📍 Shandong, China
+<p align="center">
+  <code>Java / 全栈产品开发 · AI 应用集成</code><br>
+  Shandong, China
+</p>
 
-<!-- 社交媒体徽章 -->
-<a href="https://github.com/qingzhizhu517-rgb">
-  <img src="https://img.shields.io/github/followers/qingzhizhu517-rgb?label=Followers&style=social" alt="GitHub Followers">
-</a>
-<a href="https://github.com/qingzhizhu517-rgb">
-  <img src="https://img.shields.io/github/stars/qingzhizhu517-rgb?label=Stars&style=social" alt="GitHub Stars">
-</a>
+<p align="center">
+  <a href="https://github.com/qingzhizhu517-rgb">GitHub</a> ·
+  <a href="https://aohs.top/">Website</a> ·
+  <a href="mailto:qingzhizhu517@gmail.com">Email</a>
+</p>
 
-<!-- 打字动画 -->
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&center=true&vCenter=true&width=600&lines=☕+Java+%26+AI+Agent+Engineer;🚀+Spring+AI+%7C+RAG+%7C+LLM;📍+Shandong%2C+China)](https://git.io/typing-svg)
+## About / 关于
 
-</div>
+我是 Aohs，一名以 Java 为核心的全栈产品开发者。我喜欢把规则复杂的业务、富有表达力的交互，以及 AI 能力，收敛为可部署、可维护的真实产品。
 
----
+## What I Build / 我解决的问题
 
-## 🎯 About Me
+### 01 / 业务系统
 
-- 🔭 目前专注 **AI Agent** 项目开发
-- 🌱 正在深入学习 **Spring AI、RAG、LLM**
-- 👯 欢迎一起协作 **开源项目**
-- 💬 可以和我聊 **Java、Spring Boot、AI、机器学习**
-- 📍 坐标 **山东**
+把复杂规则、数据导入、权限与审批流程整理成可以长期维护的系统。主要使用 `Java`、`Spring Boot`、`Vue`、`MySQL` 与 `Redis`。
 
----
+### 02 / 交互产品
 
-## 🛠️ Tech Stack
+让内容不只被看见，也能被探索和操作。使用 `TypeScript`、`Next.js`、`Three.js`、`GSAP` 与 `Cloudflare` 构建响应式体验。
 
-<table>
-  <tr>
-    <td><strong>Language / IDE</strong></td>
-    <td>
-      <img src="https://img.shields.io/badge/-Java-007396?style=flat&logo=openjdk&logoColor=white" alt="Java">
-      <img src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
-      <img src="https://img.shields.io/badge/-Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin">
-      <img src="https://img.shields.io/badge/-TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript">
-      <img src="https://img.shields.io/badge/-HTML-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML">
-    </td>
-  </tr>
-  <tr>
-    <td><strong>AI / ML Frameworks</strong></td>
-    <td>
-      <img src="https://img.shields.io/badge/-Spring%20AI-6DB33F?style=flat&logo=spring&logoColor=white" alt="Spring AI">
-      <img src="https://img.shields.io/badge/-LangChain-000000?style=flat&logo=chainlink&logoColor=white" alt="LangChain">
-      <img src="https://img.shields.io/badge/-OpenAI-412991?style=flat&logo=openai&logoColor=white" alt="OpenAI">
-      <img src="https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white" alt="PyTorch">
-      <img src="https://img.shields.io/badge/-TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white" alt="TensorFlow">
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Backend / Database</strong></td>
-    <td>
-      <img src="https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white" alt="Spring Boot">
-      <img src="https://img.shields.io/badge/-MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL">
-      <img src="https://img.shields.io/badge/-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
-      <img src="https://img.shields.io/badge/-Redis-DC382D?style=flat&logo=redis&logoColor=white" alt="Redis">
-    </td>
-  </tr>
-  <tr>
-    <td><strong>DevOps / Tools</strong></td>
-    <td>
-      <img src="https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker">
-      <img src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=white" alt="Git">
-      <img src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
-      <img src="https://img.shields.io/badge/-VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white" alt="VS Code">
-      <img src="https://img.shields.io/badge/-IntelliJ%20IDEA-000000?style=flat&logo=intellij-idea&logoColor=white" alt="IntelliJ IDEA">
-    </td>
-  </tr>
-</table>
+### 03 / 移动端与 AI 集成
 
----
+把在线模型能力接入真实应用，同时设计本地存储与失败降级路径。主要使用 `Kotlin`、`Jetpack Compose`、`Room` 与 `Gemini API`。
 
-## 📊 GitHub Statistics
+## Selected Work / 精选项目
 
-<div align="center">
+以下项目均由我独立设计与开发。每个项目展示的不是完整功能清单，而是最能说明问题与技术决策的部分。
 
-<!-- GitHub 统计卡片 -->
-### 📈 GitHub Stats
+### WFIT Workload
 
-| Stats | Top Languages |
-|:---:|:---:|
-| ![Stats](https://github-readme-stats.vercel.app/api?username=qingzhizhu517-rgb&show_icons=true&theme=radical&include_all_commits=true) | ![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=qingzhizhu517-rgb&theme=radical&layout=compact) |
+面向教学工作量核算的全流程业务系统。通过策略模式承载 G1-G11 共 11 类计算规则，连接排课 Excel 导入、教师申报、三级审批、绩效酬金与报表导出。
 
-<!-- 连续贡献统计 -->
-### 🔥 Streak Stats
-![Streak](https://github-readme-streak-stats.herokuapp.com/?user=qingzhizhu517-rgb&theme=radical)
+<p align="center">
+  <img src="./assets/projects/wfit-system.webp" width="100%" alt="WFIT Workload 从数据输入、策略计算、三级审批到报表输出的系统流程">
+</p>
 
-</div>
+`Java 17` · `Spring Boot` · `Vue 3` · `MySQL` · `Redis` · `Apache POI`
 
----
+[查看仓库](https://github.com/qingzhizhu517-rgb/wfit--workload)
 
-## 🏆 Achievements
+### Aohs Space
 
-<div align="center">
+一个可交互的个人数字空间。它将 3D 工牌、流式动画、像素过渡、物理情绪墙和中英文内容组织在同一套 Next.js 应用中，并部署到 Cloudflare Workers。
 
-<!-- GitHub Profile Trophy -->
-### 🎖️ GitHub Trophy
-[![trophy](https://github-profile-trophy.vercel.app/?username=qingzhizhu517-rgb&theme=radical&no-frame=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
+<p align="center">
+  <img src="./assets/projects/aohs-space.webp" width="100%" alt="Aohs Space 真实界面与 Three.js、GSAP、Cloudflare 技术重点">
+</p>
 
-</div>
+`TypeScript` · `Next.js 15` · `React 19` · `Three.js` · `GSAP` · `Cloudflare Workers`
 
----
+[在线访问](https://aohs.top/) · [查看仓库](https://github.com/qingzhizhu517-rgb/blog-t1)
 
-## 📈 Activity Graph
+### 黄河文学景观
 
-<div align="center">
+围绕黄河流域山东段构建的数字人文与教学应用，连接地域城市、文学人物、诗文、景观、非遗、节气和交互式学习内容。仓库同时包含展示端、管理端、Spring Boot 后端与 React 数据可视化端。
 
-<!-- GitHub Activity Graph -->
-### 📊 Contribution Activity
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=qingzhizhu517-rgb&theme=redical&hide_border=true&bg_color=ffffff&color=5C6BC0&line=5C6BC0&point=5C6BC0&area_color=5C6BC0&area=true)
+<p align="center">
+  <img src="./assets/projects/sjg-content-map.webp" width="100%" alt="黄河文学景观中地域、诗文、文化资源、教学与 AI 交互的内容关系图">
+</p>
 
-</div>
+`Java 17` · `Spring Boot 3.2` · `Vue 3` · `React 19` · `Three.js` · `GSAP` · `ECharts`
 
----
+[查看仓库](https://github.com/qingzhizhu517-rgb/sjg)
 
-## 🐍 Contribution Snake
+### Pet Market
 
-<div align="center">
+面向猫狗浏览与品种百科的 Android 应用，包含收藏、内容检索和 Gemini AI 顾问。在线请求不可用时自动切换到本地知识库，保证核心问答路径仍然可用。
 
-<!-- GitHub 贡献蛇动画 - 需要运行 GitHub Actions -->
-![snake](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg)
+<p align="center">
+  <img src="./assets/projects/pet-market-ai.webp" width="100%" alt="Pet Market 真实移动端界面以及 Gemini API 到本地知识库的降级流程">
+</p>
 
-![snake-dark](https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake-dark.svg)
+`Kotlin` · `Jetpack Compose` · `Room` · `Retrofit` · `Gemini API`
 
-</div>
+[查看仓库](https://github.com/qingzhizhu517-rgb/pet-market)
 
----
+## Toolbox / 技术坐标
 
-## 📫 How to Reach Me
+**Core:** `Java` · `Spring Boot` · `Vue` · `TypeScript` · `MySQL` · `Redis`
 
-<div align="center">
+**Product:** `Next.js` · `Three.js` · `GSAP` · `Cloudflare Workers`
 
-<!-- 联系方式徽章 -->
-<a href="https://github.com/qingzhizhu517-rgb">
-  <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-</a>
+**Mobile & AI:** `Kotlin` · `Jetpack Compose` · `Room` · `Gemini API`
 
-</div>
+**Currently exploring:** `Spring AI · RAG · LLM 应用架构`
 
----
+## Contribution Lab
 
-## 📊 Visitor Count
+<p align="center">
+  <img src="./profile-3d-contrib/profile-night-green.svg" width="100%" alt="Aohs 的 3D GitHub 贡献图">
+</p>
 
-<div align="center">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg">
+    <img src="https://raw.githubusercontent.com/qingzhizhu517-rgb/qingzhizhu517-rgb/output/github-contribution-grid-snake.svg" width="100%" alt="Aohs 的 GitHub 贡献蛇动画">
+  </picture>
+</p>
 
-<!-- 访客计数器 -->
-<img src="https://komarev.com/ghpvc/?username=qingzhizhu517-rgb&color=blue&style=flat&label=Profile+Views" alt="Profile Views">
+## Contact / 联系
 
-<p>Counting of visitors started from July 2026</p>
+欢迎交流 Java、全栈产品开发、交互体验与 AI 应用集成。
 
-</div>
-
----
-
-## 🌟 Star History
-
-<div align="center">
-
-[![Star History Chart](https://api.star-history.com/svg?repos=qingzhizhu517-rgb/qingzhizhu517-rgb&type=Date)](https://star-history.com/#qingzhizhu517-rgb/qingzhizhu517-rgb&Date)
-
-</div>
+[GitHub](https://github.com/qingzhizhu517-rgb) · [aohs.top](https://aohs.top/) · [qingzhizhu517@gmail.com](mailto:qingzhizhu517@gmail.com)
