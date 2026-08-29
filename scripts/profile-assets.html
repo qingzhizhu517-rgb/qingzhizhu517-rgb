@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aohs Profile Assets</title>
+  <style>
+    :root {
+      --ink: #111314;
+      --panel: #1a1d1e;
+      --paper: #f4f2ed;
+      --muted: #aeb7b2;
+      --coral: #ff8fa1;
+      --teal: #7edfd0;
+      --gold: #ffca66;
+      --line: #3a4140;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Heiti SC", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .canvas {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    body[data-asset="header"] #header,
+    body[data-asset="wfit"] #wfit,
+    body[data-asset="aohs"] #aohs,
+    body[data-asset="sjg"] #sjg,
+    body[data-asset="pet"] #pet {
+      display: flex;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .label {
+      font-size: 20px;
+      font-weight: 750;
+      color: var(--coral);
+    }
+
+    .muted { color: var(--muted); }
+    .coral { color: var(--coral); }
+    .teal { color: var(--teal); }
+    .gold { color: var(--gold); }
+
+    .header {
+      padding: 54px 58px;
+      align-items: stretch;
+      gap: 40px;
+    }
+
+    .header-copy {
+      width: 58%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header h1 {
+      margin: 10px 0 0;
+      font-size: 112px;
+      line-height: 1;
+      font-weight: 850;
+    }
+
+    .header h2 {
+      margin: 24px 0 0;
+      max-width: 820px;
+      font-size: 35px;
+      line-height: 1.32;
+      font-weight: 720;
+    }
+
+    .header p {
+      margin: 18px 0 0;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .signals {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .signal {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .header-media {
+      width: 42%;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .media {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #25292a;
+    }
+
+    .media.primary { grid-row: 1 / span 2; }
+    .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media::after {
+      content: attr(data-title);
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .project {
+      padding: 46px 52px;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+    }
+
+    .project-head h1 {
+      margin: 6px 0 0;
+      font-size: 50px;
+      line-height: 1.16;
+    }
+
+    .project-head p {
+      max-width: 680px;
+      margin: 8px 0 0;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .flow {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .stage {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stage:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -25px;
+      top: 48%;
+      color: var(--gold);
+      font-size: 28px;
+      z-index: 2;
+    }
+
+    .stage-no { color: var(--coral); font-size: 17px; font-weight: 800; }
+    .stage h2 { margin: 14px 0 0; font-size: 30px; line-height: 1.24; }
+    .stage p { margin: 18px 0 0; font-size: 20px; line-height: 1.5; color: var(--muted); }
+    .stage strong { color: var(--teal); font-size: 18px; }
+
+    .experience-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.45fr .55fr;
+      gap: 20px;
+      min-height: 0;
+    }
+
+    .experience-shot {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #e9e6df;
+    }
+
+    .experience-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .facts {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 24px;
+      border-radius: 6px;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .fact:nth-child(1) { background: var(--coral); }
+    .fact:nth-child(2) { background: var(--teal); }
+    .fact:nth-child(3) { background: var(--gold); }
+    .fact span { font-size: 17px; font-weight: 800; }
+    .fact strong { font-size: 27px; line-height: 1.2; }
+
+    .map {
+      flex: 1;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #171a1b;
+    }
+
+    .node {
+      position: absolute;
+      width: 260px;
+      min-height: 108px;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .node h2 { margin: 0; font-size: 25px; }
+    .node p { margin: 10px 0 0; color: var(--muted); font-size: 17px; line-height: 1.4; }
+    .node.city { left: 60px; top: 160px; border-color: var(--teal); }
+    .node.poet { left: 480px; top: 55px; border-color: var(--coral); }
+    .node.culture { right: 60px; top: 160px; border-color: var(--gold); }
+    .node.teaching { left: 480px; bottom: 44px; border-color: #d9dfe3; }
+    .node.ai { left: 670px; top: 210px; width: 220px; background: var(--coral); color: var(--ink); }
+    .node.ai p { color: #3b282b; }
+
+    .connector {
+      position: absolute;
+      height: 2px;
+      background: #68716d;
+      transform-origin: left center;
+    }
+
+    .c1 { left: 320px; top: 220px; width: 190px; transform: rotate(-24deg); }
+    .c2 { left: 735px; top: 115px; width: 280px; transform: rotate(22deg); }
+    .c3 { left: 320px; top: 255px; width: 235px; transform: rotate(31deg); }
+    .c4 { left: 735px; top: 420px; width: 280px; transform: rotate(-24deg); }
+    .c5 { left: 650px; top: 170px; width: 85px; transform: rotate(63deg); }
+
+    .pet-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 28px;
+      min-height: 0;
+    }
+
+    .phone {
+      justify-self: center;
+      width: 310px;
+      height: 100%;
+      padding: 12px;
+      border-radius: 34px;
+      background: #25292a;
+      border: 2px solid #59615e;
+      overflow: hidden;
+    }
+
+    .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 23px; display: block; }
+
+    .ai-flow {
+      display: grid;
+      grid-template-rows: repeat(5, auto);
+      align-content: center;
+      gap: 12px;
+    }
+
+    .ai-step {
+      padding: 20px 24px;
+      border-radius: 6px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .ai-step strong { color: var(--teal); }
+    .ai-step.primary { background: var(--coral); color: var(--ink); border-color: var(--coral); }
+    .ai-step.fallback { border-color: var(--gold); }
+    .arrow { text-align: center; color: var(--gold); font-size: 24px; }
+  </style>
+</head>
+<body>
+  <section id="header" class="canvas header">
+    <div class="header-copy">
+      <div class="eyebrow">Aohs / Digital Lab</div>
+      <h1>Aohs.</h1>
+      <h2>Engineering systems.<br><span class="coral">Designing experiences.</span></h2>
+      <p>把复杂需求做成真正可用的产品。</p>
+      <div class="signals">
+        <div class="signal">Java / Full-stack</div>
+        <div class="signal">AI Integration</div>
+        <div class="signal">Selected Work</div>
+      </div>
+    </div>
+    <div class="header-media">
+      <div class="media primary" data-title="Aohs Space"><img src="source/aohs.jpg" alt=""></div>
+      <div class="media" data-title="WFIT"><img src="source/wfit.png" alt=""></div>
+      <div class="media" data-title="Digital Humanities"><img src="source/sjg.png" alt=""></div>
+    </div>
+  </section>
+
+  <section id="wfit" class="canvas project">
+    <div class="project-head">
+      <div><div class="label">01 / BUSINESS SYSTEM</div><h1>WFIT Workload</h1></div>
+      <p>将 11 类教学工作量规则收敛为可维护、可审批、可导出的业务系统。</p>
+    </div>
+    <div class="flow">
+      <div class="stage"><div><div class="stage-no">INPUT</div><h2>数据进入</h2><p>排课 Excel、教师自主申报与规则参数统一进入系统。</p></div><strong>Apache POI / Validation</strong></div>
+      <div class="stage"><div><div class="stage-no">ENGINE</div><h2>策略计算</h2><p>G1-G11 通过策略接口动态分发，规则参数由 Redis 缓存。</p></div><strong>Java / Spring Boot</strong></div>
+      <div class="stage"><div><div class="stage-no">WORKFLOW</div><h2>三级审批</h2><p>教师、教务助理与院领导按权限完成申报、审核与签字。</p></div><strong>Security / JWT</strong></div>
+      <div class="stage"><div><div class="stage-no">OUTPUT</div><h2>汇总报表</h2><p>生成个人明细、绩效酬金统计和管理仪表盘。</p></div><strong>Vue 3 / MySQL</strong></div>
+    </div>
+  </section>
+
+  <section id="aohs" class="canvas project">
+    <div class="project-head">
+      <div><div class="label">02 / INTERACTIVE EXPERIENCE</div><h1>Aohs Space</h1></div>
+      <p>把个人主页从静态介绍升级为可交互、可探索的数字空间。</p>
+    </div>
+    <div class="experience-body">
+      <div class="experience-shot"><img src="source/aohs.jpg" alt=""></div>
+      <div class="facts">
+        <div class="fact"><span>3D</span><strong>Three.js<br>R3F</strong></div>
+        <div class="fact"><span>MOTION</span><strong>GSAP<br>Matter.js</strong></div>
+        <div class="fact"><span>EDGE</span><strong>Next.js<br>Cloudflare</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sjg" class="canvas project">
+    <div class="project-head">
+      <div><div class="label">03 / DIGITAL HUMANITIES</div><h1>黄河文学景观</h1></div>
+      <p>连接山东沿黄地域、文学人物、诗文、景观、非遗与教学交互。</p>
+    </div>
+    <div class="map">
+      <div class="connector c1"></div><div class="connector c2"></div><div class="connector c3"></div><div class="connector c4"></div><div class="connector c5"></div>
+      <div class="node city"><h2 class="teal">地域与城市</h2><p>沿黄城市、路线、景观与地域文化。</p></div>
+      <div class="node poet"><h2 class="coral">诗人与诗文</h2><p>人物、作品、朝代时间线与文学关系。</p></div>
+      <div class="node culture"><h2 class="gold">景观与非遗</h2><p>文化场景、传统技艺、节气与教学素材。</p></div>
+      <div class="node teaching"><h2>展示与管理</h2><p>Vue 展示端、管理端、Spring Boot 后端与 React 数据可视化端。</p></div>
+      <div class="node ai"><h2>AI 交互</h2><p>诗文分析、创作辅助与内容探索。</p></div>
+    </div>
+  </section>
+
+  <section id="pet" class="canvas project">
+    <div class="project-head">
+      <div><div class="label">04 / MOBILE + AI</div><h1>Pet Market</h1></div>
+      <p>在真实 Android 产品中连接浏览、百科、收藏与可降级的 AI 顾问。</p>
+    </div>
+    <div class="pet-body">
+      <div class="phone"><img src="source/pet.png" alt=""></div>
+      <div class="ai-flow">
+        <div class="ai-step primary"><strong>用户问题</strong><br>品种推荐、喂养建议与新手指南</div>
+        <div class="arrow">↓</div>
+        <div class="ai-step"><strong>Gemini API</strong><br>在线生成针对当前问题的回答</div>
+        <div class="arrow">↓ 离线或请求失败</div>
+        <div class="ai-step fallback"><strong>本地知识库降级</strong><br>保持核心问答能力可用，数据通过 Room 留在设备端</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const allowed = new Set(["header", "wfit", "aohs", "sjg", "pet"]);
+    const requested = new URLSearchParams(window.location.search).get("asset") || "header";
+    Promise.all(Array.from(document.images, (image) => image.decode().catch(() => undefined)))
+      .then(() => {
+        document.body.dataset.asset = allowed.has(requested) ? requested : "header";
+        return new Promise((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(resolve));
+        });
+      })
+      .then(() => {
+        document.documentElement.dataset.ready = "true";
+      });
+  </script>
+</body>
+</html>
