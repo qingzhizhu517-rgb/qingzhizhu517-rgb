@@ -409,16 +409,39 @@
   <script>
     const allowed = new Set(["header", "wfit", "aohs", "sjg", "pet"]);
     const requested = new URLSearchParams(window.location.search).get("asset") || "header";
-    Promise.all(Array.from(document.images, (image) => image.decode().catch(() => undefined)))
+    const target = allowed.has(requested) ? requested : "header";
+    document.body.dataset.asset = target;
+    const activeCanvas = document.getElementById(target);
+    const activeImages = Array.from(activeCanvas.images);
+    const reportError = (error) => {
+      document.documentElement.dataset.renderError = error instanceof Error ? error.message : String(error);
+      document.body.textContent = "RENDER_ERROR";
+    };
+    const markLoaded = () => {
+      const failedImage = activeImages.find((image) => !image.complete || image.naturalWidth <= 0);
+      if (failedImage) {
+        reportError(new Error(`Image failed to load: ${failedImage.currentSrc || failedImage.src}`));
+        return;
+      }
+      document.documentElement.dataset.loaded = "true";
+    };
+
+    if (document.readyState === "complete") {
+      markLoaded();
+    } else {
+      window.addEventListener("load", markLoaded, { once: true });
+    }
+
+    Promise.all(activeImages.map(image => image.decode()))
       .then(() => {
-        document.body.dataset.asset = allowed.has(requested) ? requested : "header";
         return new Promise((resolve) => {
           requestAnimationFrame(() => requestAnimationFrame(resolve));
         });
       })
       .then(() => {
         document.documentElement.dataset.ready = "true";
-      });
+      })
+      .catch(reportError);
   </script>
 </body>
 </html>
