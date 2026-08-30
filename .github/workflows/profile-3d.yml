@@ -1,29 +1,46 @@
-name: GitHub-Profile-3D-Contrib
+name: Generate 3D contribution graph
 
 on:
   schedule:
-    - cron: "0 18 * * *"  # 03:00 JST == 18:00 UTC
-
+    - cron: "0 18 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-3d-contribution
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: generate-github-profile-3d-contrib
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
 
-      - uses: yoshi389111/github-profile-3d-contrib@0.6.0
+      - name: Generate contribution graph
+        uses: yoshi389111/github-profile-3d-contrib@69fe3757279590c632c16189bb91445b51dc985f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
-      - name: Commit & Push
+      - name: Keep selected variant and commit changes
+        shell: bash
         run: |
-          git config user.name qingzhizhu517-rgb
-          git config user.email your-email@example.com
-          git add -A .
-          git commit -m "generated 3D profile contrib"
+          set -euo pipefail
+          selected="profile-3d-contrib/profile-night-green.svg"
+          test -s "$selected"
+          find profile-3d-contrib -type f ! -name "profile-night-green.svg" -delete
+
+          if git diff --quiet -- "$selected"; then
+            echo "No 3D contribution changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$selected"
+          git commit -m "chore: update 3D contribution graph [skip ci]"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
