@@ -353,7 +353,7 @@
     </div>
     <div class="flow">
       <div class="stage"><div><div class="stage-no">INPUT</div><h2>数据进入</h2><p>排课 Excel、教师自主申报与规则参数统一进入系统。</p></div><strong>Apache POI / Validation</strong></div>
-      <div class="stage"><div><div class="stage-no">ENGINE</div><h2>策略计算</h2><p>G1-G11 通过策略接口动态分发，规则参数由 Redis 缓存。</p></div><strong>Java / Spring Boot</strong></div>
+      <div class="stage"><div><div class="stage-no">ENGINE</div><h2>策略计算</h2><p>G1-G6 与 G11 由策略引擎计算，G7/G10 汇总，G8/G9 支持申报。</p></div><strong>Java / Spring Boot</strong></div>
       <div class="stage"><div><div class="stage-no">WORKFLOW</div><h2>三级审批</h2><p>教师、教务助理与院领导按权限完成申报、审核与签字。</p></div><strong>Security / JWT</strong></div>
       <div class="stage"><div><div class="stage-no">OUTPUT</div><h2>汇总报表</h2><p>生成个人明细、绩效酬金统计和管理仪表盘。</p></div><strong>Vue 3 / MySQL</strong></div>
     </div>
@@ -400,8 +400,8 @@
         <div class="ai-step primary"><strong>用户问题</strong><br>品种推荐、喂养建议与新手指南</div>
         <div class="arrow">↓</div>
         <div class="ai-step"><strong>Gemini API</strong><br>在线生成针对当前问题的回答</div>
-        <div class="arrow">↓ 离线或请求失败</div>
-        <div class="ai-step fallback"><strong>本地知识库降级</strong><br>保持核心问答能力可用，数据通过 Room 留在设备端</div>
+        <div class="arrow">↓ 请求失败或未配置 API Key</div>
+        <div class="ai-step fallback"><strong>本地知识库降级</strong><br>回退本地知识库，保留基础问答能力；数据通过 Room 留在设备端</div>
       </div>
     </div>
   </section>

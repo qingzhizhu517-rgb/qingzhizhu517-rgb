@@ -46,7 +46,7 @@
 
 ### WFIT Workload
 
-面向教学工作量核算的全流程业务系统。通过策略模式承载 G1-G11 共 11 类计算规则，连接排课 Excel 导入、教师申报、三级审批、绩效酬金与报表导出。
+面向教学工作量核算的全流程业务系统。覆盖 G1-G11 共 11 类核算口径：G1-G6 与 G11 由策略引擎计算，G7/G10 自动汇总，G8/G9 支持教师申报，并连接排课 Excel 导入、三级审批、绩效酬金与报表导出。
 
 <p align="center">
   <img src="./assets/projects/wfit-system.webp" width="100%" alt="WFIT Workload 从数据输入、策略计算、三级审批到报表输出的系统流程">
@@ -82,7 +82,7 @@
 
 ### Pet Market
 
-面向猫狗浏览与品种百科的 Android 应用，包含收藏、内容检索和 Gemini AI 顾问。在线请求不可用时自动切换到本地知识库，保证核心问答路径仍然可用。
+面向猫狗浏览与品种百科的 Android 应用，包含收藏、内容检索和 Gemini AI 顾问。在线请求不可用或未配置 API Key 时自动切换到本地知识库，保留基础问答能力。
 
 <p align="center">
   <img src="./assets/projects/pet-market-ai.webp" width="100%" alt="Pet Market 真实移动端界面以及 Gemini API 到本地知识库的降级流程">
