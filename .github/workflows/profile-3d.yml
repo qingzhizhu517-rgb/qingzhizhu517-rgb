@@ -31,8 +31,10 @@ jobs:
         run: |
           set -euo pipefail
           selected="profile-3d-contrib/profile-night-green.svg"
+          test -f "$selected"
+          test ! -L "$selected"
           test -s "$selected"
-          find profile-3d-contrib -type f ! -name "profile-night-green.svg" -delete
+          find profile-3d-contrib -mindepth 1 ! -path "$selected" -delete
 
           git add -A -- profile-3d-contrib
 
