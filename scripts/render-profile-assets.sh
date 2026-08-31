@@ -225,44 +225,57 @@ render() {
   width=$2
   height=$3
   destination=$4
+  expected_sha=$5
   png_output="$TEMP_DIR/rendered/$asset_name.png"
   webp_output="$TEMP_DIR/rendered/$(basename "$destination")"
   chrome_log="$TEMP_DIR/logs/$asset_name.chrome.log"
   cwebp_log="$TEMP_DIR/logs/$asset_name.cwebp.log"
+  attempt=1
+  while [ "$attempt" -le 5 ]; do
+    if ! "$CHROME_BIN" \
+      --headless=new \
+      --disable-gpu \
+      --hide-scrollbars \
+      --allow-file-access-from-files \
+      --force-device-scale-factor=1 \
+      --run-all-compositor-stages-before-draw \
+      --virtual-time-budget=7000 \
+      --window-size="$width,$height" \
+      --screenshot="$png_output" \
+      "file://$TEMP_DIR/profile-assets.html?asset=$asset_name" \
+      >/dev/null 2>"$chrome_log"; then
+      printf 'Chrome screenshot failed for asset %s.\n' "$asset_name" >&2
+      sed -n '1,120p' "$chrome_log" >&2
+      exit 1
+    fi
 
-  if ! "$CHROME_BIN" \
-    --headless=new \
-    --disable-gpu \
-    --hide-scrollbars \
-    --allow-file-access-from-files \
-    --force-device-scale-factor=1 \
-    --run-all-compositor-stages-before-draw \
-    --virtual-time-budget=7000 \
-    --window-size="$width,$height" \
-    --screenshot="$png_output" \
-    "file://$TEMP_DIR/profile-assets.html?asset=$asset_name" \
-    >/dev/null 2>"$chrome_log"; then
-    printf 'Chrome screenshot failed for asset %s.\n' "$asset_name" >&2
-    sed -n '1,120p' "$chrome_log" >&2
-    exit 1
-  fi
+    validate_png "$png_output" "$width" "$height"
 
-  validate_png "$png_output" "$width" "$height"
+    if ! cwebp -quiet -q 88 -m 6 "$png_output" -o "$webp_output" 2>"$cwebp_log"; then
+      printf 'cwebp failed for asset %s.\n' "$asset_name" >&2
+      sed -n '1,120p' "$cwebp_log" >&2
+      exit 1
+    fi
 
-  if ! cwebp -quiet -q 88 -m 6 "$png_output" -o "$webp_output" 2>"$cwebp_log"; then
-    printf 'cwebp failed for asset %s.\n' "$asset_name" >&2
-    sed -n '1,120p' "$cwebp_log" >&2
-    exit 1
-  fi
+    validate_output "$webp_output" "$width" "$height"
+    actual_sha=$(shasum -a 256 "$webp_output" | awk '{print $1}')
+    if [ "$actual_sha" = "$expected_sha" ]; then
+      return
+    fi
 
-  validate_output "$webp_output" "$width" "$height"
+    attempt=$((attempt + 1))
+  done
+
+  printf 'Rendered asset hash mismatch for %s: expected %s, got %s.\n' \
+    "$asset_name" "$expected_sha" "$actual_sha" >&2
+  exit 1
 }
 
-render header 1600 520 assets/brand/aohs-header.webp
-render wfit 1600 720 assets/projects/wfit-system.webp
-render aohs 1600 720 assets/projects/aohs-space.webp
-render sjg 1600 720 assets/projects/sjg-content-map.webp
-render pet 1600 720 assets/projects/pet-market-ai.webp
+render header 1600 520 assets/brand/aohs-header.webp 0452d478c9891c7a3bdf05e8d9ab359c25c8efcc477355075f0036d6c8a61e70
+render wfit 1600 720 assets/projects/wfit-system.webp d007f293b7e942b646d17cb1fb21de0d5c5336bf1727397e38291a614b5b78f4
+render aohs 1600 720 assets/projects/aohs-space.webp a1b6f6ff2c9e44d3be9b652f495a9e2f19918a4dc5ce9add394f91d58879cfb2
+render sjg 1600 720 assets/projects/sjg-content-map.webp 9d93cdb3750cc8b0e55adacb712cc1e65690c5351c9bd09804bf168e38cc31b2
+render pet 1600 720 assets/projects/pet-market-ai.webp ab8029d2a70932a9e46ed5308ef7bb219985f6156afe3458541e868b54853397
 
 FINAL_HEADER="$ROOT_DIR/assets/brand/aohs-header.webp"
 FINAL_WFIT="$ROOT_DIR/assets/projects/wfit-system.webp"
